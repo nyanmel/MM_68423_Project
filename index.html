@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Aplikacja Pogodowa</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Względem pliku CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom right, #3a0080, #006666); /* Gradientowe tło */
+            color: #fff; /* Kolor tekstu na tle */
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            text-align: center;
+            padding-top: 50px;
+            background-color: rgba(255, 255, 255, 0.9); /* Półprzezroczyste białe tło */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding-bottom: 20px;
+            color: #333; /* Zmiana koloru tekstu w kontenerze */
+            position: relative;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            padding: 10px;
+            border-bottom: 2px solid #ccc;
+            border-radius: 10px 10px 0 0;
+            background-color: #5f0099; /* Kolor tła nagłówka */
+            color: #fff; /* Zmiana koloru tekstu w nagłówku */
+        }
+
+        input[type="text"] {
+            width: 200px;
+            padding: 10px;
+            margin: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 8px 15px; /* Zmniejszenie rozmiaru przycisku */
+            background-color: #008CBA;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #005f73;
+        }
+
+        #weatherResult {
+            margin-top: 20px;
+        }
+
+        .gallery-container {
+            width: 80%;
+            margin: auto;
+            margin-top: 50px;
+            border: 2px solid #ccc; /* Dodanie ramki dla galerii */
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .gallery {
+            display: flex;
+            justify-content: center;
+        }
+
+        .gallery img {
+            width: 200px; 
+            height: 150px;
+            margin: 10px;
+        }
+
+        #language { /* Styl dla rozwijanej listy */
+            width: 100px; /* Zdefiniowanie rozmiaru przycisku */
+            padding: 8px 15px; /* Zmniejszenie rozmiaru przycisku */
+            border: none;
+            border-radius: 5px;
+            background-color: #008CBA; /* Kolor tła przycisku */
+            color: white;
+            cursor: pointer;
+        }
+
+        .language-container { /* Styl dla kontenera przycisku wyboru języka */
+            position: absolute; /* Pozycjonowanie absolutne */
+            top: 10px; /* Położenie u góry */
+            left: 10px; /* Położenie po lewej */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="language-container">
+            <select id="language">
+                <option value="pl">PL</option>
+                <option value="en">EN</option>
+                <option value="ru">RU</option>
+                <option value="es">ES</option>
+            </select>
+        </div>
+        <h1>Aplikacja Pogodowa</h1>
+        <input type="text" id="cityName" placeholder="Wpisz nazwę miasta">
+        <button onclick="getWeather()">Szukaj</button>
+        <div id="weatherResult"></div>
+    </div>
+
+    <div class="gallery-container">
+        <div id="gallery" class="gallery">
+            <!-- Zdjęcia galerii -->
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script src="script.js" defer></script>
+
+    <script>
+        // Obsługa zmiany języka
+        document.getElementById('language').addEventListener('change', function() {
+            // Pobierz wartość wybranego języka
+            var language = this.value;
+            // Wywołaj funkcję zmieniającą język
+            changeLanguage(language);
+        });
+
+        // Funkcja zmieniająca język
+        function changeLanguage(language) {
+            // Twój kod zmieniający język
+            console.log('Wybrany język: ' + language);
+        }
+    </script>
+</body>
+</html>
